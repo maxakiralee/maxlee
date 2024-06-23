@@ -7,6 +7,7 @@ const About = React.lazy(() => import('./routes/About'));
 const Projects = React.lazy(() => import('./routes/Projects'));
 const Experience = React.lazy(() => import('./routes/Experience'));
 import Frame from './components/frame';
+import './styles/App.css'
 
 const App = () => {
   const navigate = useNavigate();
@@ -66,18 +67,22 @@ const App = () => {
   }, [location.pathname, navigate, pages, isScrollingAllowed, isKeyPressAllowed]);
 
   return (
-    <div>
-      <Frame/>
-      <Suspense fallback={<div>Loading...</div>}>
-        <AnimatePresence mode='wait'>
-          <Routes location={location} key={location.key}>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/experience" element={<Experience />} />
-          </Routes>
-        </AnimatePresence>
-      </Suspense>
+    <div className="grid"> 
+      <div className="gridBackground"> 
+        <Frame/>
+      </div>
+      <div className='gridFront'>
+        <Suspense fallback={<div>Loading...</div>}>
+          <AnimatePresence mode='wait'>
+            <Routes location={location} key={location.key}>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/projects" element={<Projects />} />
+              <Route path="/experience" element={<Experience />} />
+            </Routes>
+          </AnimatePresence>
+        </Suspense>
+      </div>
     </div>
   );
 };
