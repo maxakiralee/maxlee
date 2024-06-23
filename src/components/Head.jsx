@@ -11,7 +11,7 @@ const containerVariants = {
     visible: { 
       opacity: 1, 
       y: 0,
-      transition: { type: 'spring', delay: 0.5 }
+      transition: { type: 'inertia' }
     },
     exit: {
       y: "-100vh",
@@ -24,7 +24,7 @@ export default function Head({ title, description, image, url }) {
         <motion.div className={styles.container}
             initial={{ opacity: 0, y: '50vh' }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ type: 'spring' }}
+            transition={{ type: 'Inertia', duration: 0.5 }}
             exit={{ opacity: 0, y:'-50vh'}}
         >
             <div className={styles.left}>
