@@ -1,20 +1,21 @@
+// App2.js
 import React, { useEffect, Suspense, useState } from 'react';
 import { useNavigate, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 
-const Home = React.lazy(() => import('./routes/Home'));
-const About = React.lazy(() => import('./routes/About'));
-const Projects = React.lazy(() => import('./routes/Projects'));
-const Experience = React.lazy(() => import('./routes/Experience'));
+const AboutHead = React.lazy(() => import('./routes/about/AboutHead'));
+const AboutInfo = React.lazy(() => import('./routes/about/AboutInfo'));
+const AboutContact = React.lazy(() => import('./routes/about/AboutContact'));
 import Frame from './components/frame';
+import './styles/App.css'
 
-const App = () => {
+const App2 = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [isScrollingAllowed, setIsScrollingAllowed] = useState(true);
   const [isKeyPressAllowed, setIsKeyPressAllowed] = useState(true);
 
-  const pages = ['/', '/about', '/projects', '/experience'];
+  const pages = ['/aboutHead/head', '/aboutHead/info', '/aboutHead/contact'];
 
   useEffect(() => {
     const handleKeyDown = (event) => {
@@ -32,7 +33,7 @@ const App = () => {
       setIsKeyPressAllowed(false);
       setTimeout(() => {
         setIsKeyPressAllowed(true);
-      }, 2500); // Set delay to 2000 ms
+      }, 2500); // Set delay to 2500 ms
     };
 
     const handleScroll = (event) => {
@@ -53,7 +54,7 @@ const App = () => {
       setIsScrollingAllowed(false);
       setTimeout(() => {
         setIsScrollingAllowed(true);
-      }, 2500); // Set delay to 2000 ms
+      }, 2500); // Set delay to 2500 ms
     };
 
     window.addEventListener('keydown', handleKeyDown);
@@ -66,20 +67,23 @@ const App = () => {
   }, [location.pathname, navigate, pages, isScrollingAllowed, isKeyPressAllowed]);
 
   return (
-    <div>
-      <Frame/>
-      <Suspense fallback={<div>Loading...</div>}>
-        <AnimatePresence mode='wait'>
-          <Routes location={location} key={location.key}>
-            <Route path="/" element={<Home />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/projects" element={<Projects />} />
-            <Route path="/experience" element={<Experience />} />
-          </Routes>
-        </AnimatePresence>
-      </Suspense>
+    <div className="grid"> 
+      <div className="gridBackground"> 
+        <Frame /> 
+      </div>
+      <div className="gridFront">
+        <Suspense fallback={<div>Loading...</div>}>
+          <AnimatePresence mode='wait'>
+            <Routes location={location} key={location.key}>
+              <Route path="/head" element={<AboutHead />} />
+              <Route path="/info" element={<AboutInfo />} />
+              <Route path="/contact" element={<AboutContact />} />
+            </Routes>
+          </AnimatePresence>
+        </Suspense>
+      </div>
     </div>
   );
 };
 
-export default App;
+export default App2;

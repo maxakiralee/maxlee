@@ -1,12 +1,13 @@
 .container {
-    width: 94vw;
-    height: 90vh;
+    width: 80vw;
+    height: 80vh;
     margin: 5vh;
 
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+    background-color: aqua;
 }
 
 .left {
