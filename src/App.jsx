@@ -7,13 +7,15 @@ const About = React.lazy(() => import('./routes/About'));
 const Projects = React.lazy(() => import('./routes/Projects'));
 const Experience = React.lazy(() => import('./routes/Experience'));
 import Frame from './components/frame';
-import './styles/App.css'
+import NavButton from './components/NavButton';
+import './styles/App.css';
 
 const App = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const [isScrollingAllowed, setIsScrollingAllowed] = useState(true);
   const [isKeyPressAllowed, setIsKeyPressAllowed] = useState(true);
+  const [direction, setDirection] = useState(1);
 
   const pages = ['/', '/about', '/projects', '/experience'];
 
@@ -25,15 +27,17 @@ const App = () => {
       if (event.key === 'ArrowDown') {
         const nextPage = pages[(currentIndex + 1) % pages.length];
         navigate(nextPage);
+        setDirection(1);
       } else if (event.key === 'ArrowUp') {
         const prevPage = pages[(currentIndex - 1 + pages.length) % pages.length];
         navigate(prevPage);
+        setDirection(-1);
       }
 
       setIsKeyPressAllowed(false);
       setTimeout(() => {
         setIsKeyPressAllowed(true);
-      }, 1500); // Set delay to 2000 ms
+      }, 1500); // Set delay to 1500 ms
     };
 
     const handleScroll = (event) => {
@@ -46,15 +50,17 @@ const App = () => {
       if (deltaY > 0) {
         const nextPage = pages[(currentIndex + 1) % pages.length];
         navigate(nextPage);
+        setDirection(1);
       } else if (deltaY < 0) {
         const prevPage = pages[(currentIndex - 1 + pages.length) % pages.length];
         navigate(prevPage);
+        setDirection(-1);
       }
 
       setIsScrollingAllowed(false);
       setTimeout(() => {
         setIsScrollingAllowed(true);
-      }, 1500); // Set delay to 2000 ms
+      }, 1500); // Set delay to 1500 ms
     };
 
     window.addEventListener('keydown', handleKeyDown);
@@ -73,15 +79,18 @@ const App = () => {
       </div>
       <div className='gridFront'>
         <Suspense fallback={<div>Loading...</div>}>
-          <AnimatePresence mode='wait'>
+          <AnimatePresence mode='wait' initial={false} custom={direction}>
             <Routes location={location} key={location.key}>
-              <Route path="/" element={<Home />} />
-              <Route path="/about" element={<About />} />
-              <Route path="/projects" element={<Projects />} />
-              <Route path="/experience" element={<Experience />} />
+              <Route path="/" element={<Home custom={direction} />} />
+              <Route path="/about" element={<About custom={direction} />} />
+              <Route path="/projects" element={<Projects custom={direction} />} />
+              <Route path="/experience" element={<Experience custom={direction} />} />
             </Routes>
           </AnimatePresence>
         </Suspense>
+      </div>
+      <div className='gridButton'>
+        <NavButton/>
       </div>
     </div>
   );

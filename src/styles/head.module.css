@@ -1,34 +1,58 @@
+/* head.module.css */
+
 .container {
     width: 95vw;
-    height: 90vh;
-
+    height: 30vh;
+  
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    background-color: aqua;
-}
-
-.left {
-
-}
-
-
-
-.right {
     justify-content: center;
     align-items: center;
+    color: --primary-color;
+  }
+  
+  .left {
+    width: 45vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .leftSpacing{
+    width: 5vw;
+  }
+  
+.leftContent{
+    width: 40vw;
+    align-items: center;
+    justify-content: right;
 }
 
-/*.title {
-
-}
-
-.description {
-
-}
-
-.button {
-    
-}
-*/
+  .title {
+    display: flex;
+    flex-direction: row;
+    font-family: "Garamound", Times, serif;
+    font-size: 6vw; 
+    font-weight: 900;
+  }
+  
+  .period {
+    color: rgb(49, 237, 52);
+  }
+  
+  .description {
+    font-size: 1.5vw;
+  }
+  
+  .button {
+    font-size: 1.5vw;
+    transform: translateY(-2.5vh);
+  }
+  
+  .right {
+    width: 50vw;
+    justify-content: center;
+    align-items: center;
+    background-color: blueviolet;
+  }
+  
