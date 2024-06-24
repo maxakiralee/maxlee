@@ -37,7 +37,7 @@ const App = () => {
       setIsKeyPressAllowed(false);
       setTimeout(() => {
         setIsKeyPressAllowed(true);
-      }, 1500); // Set delay to 1500 ms
+      }, 1000); // Set delay to 1500 ms
     };
 
     const handleScroll = (event) => {
@@ -60,7 +60,7 @@ const App = () => {
       setIsScrollingAllowed(false);
       setTimeout(() => {
         setIsScrollingAllowed(true);
-      }, 1500); // Set delay to 1500 ms
+      }, 1400); // Set delay to 1500 ms
     };
 
     window.addEventListener('keydown', handleKeyDown);

@@ -6,7 +6,7 @@ const Home = ({ custom }) => {
         <div>
             <Head 
                 title="HI! IM MAX"
-                description="Check out our Home here." 
+                description="I love many things, but coding above all!" 
                 image="/path/to/your/image.jpg" 
                 url="/" 
                 custom={custom}
