@@ -1,4 +1,10 @@
-/* head.module.css */
+.overall {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .container {
     width: 95vw;
@@ -37,7 +43,7 @@
   }
   
   .period {
-    color: rgb(49, 237, 52);
+    color: #02f60e;
   }
   
   .description {
@@ -46,13 +52,66 @@
   
   .button {
     font-size: 1.5vw;
-    transform: translateY(-2.5vh);
+    transform: translateY(-2vh);
   }
   
   .right {
     width: 50vw;
     justify-content: center;
     align-items: center;
-    background-color: blueviolet;
   }
+  
+  .navChannel {
+    position: absolute;
+    left: 6vw;
+    bottom: 7vh;
+    display: flex;
+    flex-direction: column;
+    flex-direction: flex-end;
+    align-items: center;
+}
+
+  .navButton {
+    width: 2vh;
+    height: 2vh;
+    border-radius: 50%;
+    border: 0.25vh solid red; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .navLine {
+      width: 0.2vh;
+      height: 3vh;
+      background-color: gray;
+  }
+
+
+  .currentButton {
+    display: grid;
+    place-items: center;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+}
+
+.currentButtonInner {
+    grid-area: 1 / 1;
+    z-index: 1;
+    width: 1vh;
+    height: 1vh;
+    border-radius: 50%;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+.currentButtonOuter {
+  grid-area: 1 / 1;
+  z-index: 2;
+}
+
+
+
   

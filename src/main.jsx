@@ -26,7 +26,7 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <Routes>
           <Route path="/*" element={<App />} />
           <Route path="/nav/*" element={<App0 />} />
-          <Route path="/aboutHead/*" element={<App2 />} />
+          <Route caseSensitive path="/About/*" element={<App2 />} />
         </Routes>
       </Suspense>
     </Router>
