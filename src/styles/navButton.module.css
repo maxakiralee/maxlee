@@ -1,3 +1,47 @@
+
 .container {
-    transform: translateX(-47.5vw);
+    transform: translateX(-47vw);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+
+  .container button {
+    width: 6vh; 
+    height: 6vh; 
+    background-color: hsl(45, 100%, 50%);
+    border: none; 
+    padding: 0;
+    cursor: pointer; 
+    border-radius: 50%; 
+    position: relative;
+  
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .container button::before,
+.container button::after {
+  content: '';
+  position: absolute;
+  background-color: white; /* Color of the plus sign */
 }
+
+.container button::before {
+  width: 0.3vh; /* Width of the vertical line */
+  height: 3vh; /* Height of the vertical line */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.container button::after {
+  width: 3vh; /* Width of the horizontal line */
+  height: 0.3vh; /* Height of the horizontal line */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+

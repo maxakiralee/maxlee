@@ -8,6 +8,27 @@ import NavButton from './components/NavButton';
 import './styles/App.css';
 
 const App = () => {
+
+  useEffect(() => {
+    const handleScroll = (event) => {
+      event.preventDefault();
+    };
+
+    const handleKeyDown = (event) => {
+      if (event.key === 'ArrowDown' || event.key === 'ArrowUp') {
+        event.preventDefault();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    window.addEventListener('wheel', handleScroll, { passive: false });
+
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      window.removeEventListener('wheel', handleScroll);
+    };
+  }, []); 
+
   return (
     <div className="grid"> 
       <div className="gridBackground"> 

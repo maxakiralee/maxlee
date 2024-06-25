@@ -1,5 +1,6 @@
 import React from 'react';
 import Head from '../components/Head';
+import svgPath from '../assets/HiImMax.svg';
 
 const Home = ({ custom, resetDirection }) => {
     return (
@@ -12,6 +13,7 @@ const Home = ({ custom, resetDirection }) => {
                 custom={custom}
                 resetDirection={resetDirection}
                 showButton={false} 
+                svgPath={svgPath}
             />
         </div>
     );

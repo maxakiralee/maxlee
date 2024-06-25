@@ -19,6 +19,7 @@ const App2 = () => {
   const pages = ['/About/', '/About/info', '/About/contact'];
 
   useEffect(() => {
+    event.preventDefault(); // Prevent the default scrolling behavior
     const handleKeyDown = (event) => {
       if (!isKeyPressAllowed) return;
 
