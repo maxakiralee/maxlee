@@ -15,6 +15,7 @@
 .gridFront {
   grid-area: 1 / 1;
   z-index: 2;
+  
 }
 
 .gridButton {

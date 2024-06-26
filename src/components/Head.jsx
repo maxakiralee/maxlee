@@ -16,7 +16,7 @@ const drawVariant = {
     visible: { pathLength: 0 }
 };
 
-export default function Head({ title, description, image, url, custom, showButton = true, resetDirection, svgPath }) {
+export default function Head({ svgPath, svgFill, description, image, url, custom, showButton = true, resetDirection }) {
     const location = useLocation();
     const currentPath = location.pathname;
     const svgRef = useRef(null);
@@ -31,9 +31,9 @@ export default function Head({ title, description, image, url, custom, showButto
                 targets: svgRef.current.querySelectorAll('path'),
                 strokeDashoffset: [anime.setDashoffset, 0],
                 easing: 'easeInOutSine',
-                duration: 1500,
-                delay: (el, i) => i * 250,
-                direction: 'alternate',
+                duration: 500,
+                delay: 0 /* (el, i) => i * 50 */,
+                direction: 'forward',
                 loop: false
             });
         }
@@ -54,23 +54,46 @@ export default function Head({ title, description, image, url, custom, showButto
                 <div className={styles.left}>
                     <div className={styles.leftSpacing}></div>
                     <div className={styles.leftContent}>
-                        <motion.h1 className={styles.title}
-                            custom={custom}
-                            initial={{ y: getVerticalPosition(custom), opacity: 1 }}
-                            animate={{ y: 0, opacity: 1 }}
-                            exit={{ y: getVerticalPosition(custom), opacity: 0, transition: { opacity: { duration: 0.25, delay: 0 } } }}
-                            transition={{ type: 'tween', duration: 0.25, opacity: { delay: 0.2, duration: 0.1 } }}
-                        >
-                            <div>{title}</div>
-                            <div className={styles.period}>.</div>
-                        </motion.h1>
+                        <h1 className={styles.title}>
+                            <div className={styles.titleGrid}>
+                                <motion.div className={styles.titleOutline}
+                                    custom={custom}
+                                    initial={{ y: getVerticalPosition(custom), opacity: 1 }}
+                                    animate={{ y: 0, opacity: 1 }}
+                                    exit={{ y: getVerticalPosition(custom), opacity: 0, transition: { opacity: { delay: 0, duration: 0.2 } } }}
+                                    transition={{ type: 'tween', duration: 0.25}}
+                                >
+                                    <div ref={svgRef}>
+                                        <ReactSVG src={svgPath} />
+                                    </div>
+                                </motion.div>
+                                <motion.div className={styles.titleFill}
+                                    custom={custom}
+                                    initial={{ y: getVerticalPosition(custom), opacity: 0 }}
+                                    animate={{ y: 0, opacity: 1 }}
+                                    exit={{ y: getVerticalPosition(custom), opacity: 0, transition: { opacity: { delay: 0, duration: 0.25 } } }}
+                                    transition={{ type: 'tween', duration: 0.25, opacity: { delay: 0.4, duration: 0.25 } }}
+                                >
+                                    <ReactSVG src={svgFill} />
+                                </motion.div>
+                            </div>
+                            <motion.div
+                                custom={custom}
+                                initial={{ y: 0, opacity: 0 }}
+                                animate={{ y: 0, opacity: 1 }}
+                                exit={{ y: getVerticalPosition(custom), opacity: 0, transition: { opacity: { duration: 0.25, delay: 0 } } }}
+                                transition={{ type: 'tween', duration: 0.25, opacity: { delay: 0.6, duration: 0.25 } }}
+                            >
+                                <p className={styles.period}>.</p>
+                            </motion.div>
+                        </h1>
 
                         <motion.div
                             custom={custom}
                             initial={{ x: '-3vw', opacity: 0 }}
                             animate={{ x: 0, opacity: 1 }}
                             exit={{ y: getVerticalPosition(custom), opacity: 0, transition: { duration: 0.25, delay: 0 } }}
-                            transition={{ duration: 0.25, delay: 0.2 }}
+                            transition={{ duration: 0.35, delay: 0.4 }}
                         >
                             <p className={styles.description}>{description}</p>
                             {showButton && (
@@ -83,9 +106,6 @@ export default function Head({ title, description, image, url, custom, showButto
                 </div>
 
                 <motion.div className={styles.right}>
-                    <div ref={svgRef}>
-                        <ReactSVG src={svgPath} />
-                    </div>
                     <p> COOL STUFF HERE </p>
                 </motion.div>
             </div>
@@ -94,17 +114,17 @@ export default function Head({ title, description, image, url, custom, showButto
                 initial={{ x: '-3vw', opacity: 0 }}
                 animate={{ x: 0, opacity: 1 }}
                 exit={{ opacity: 0, transition: { duration: 0.25, delay: 0 } }}
-                transition={{ duration: 0.25, delay: 0.2 }}
+                transition={{ duration: 0.35, delay: 0.4 }}
             >
                 {['/', '/about', '/projects', '/experience'].map((path, index) => (
                     <React.Fragment key={index}>
                         {currentPath === path ? (
                             <div className={styles.currentButton}>
                                 <motion.div className={styles.currentButtonOuter}
-                                    initial={{ x: '-3vw', opacity: 0, scale: 0 }}
+                                    initial={{ x: 0, opacity: 1, scale: 0 }}
                                     animate={{ x: 0, opacity: 1, scale: 1 }}
-                                    exit={{ opacity: 0, transition: { duration: 0.25, delay: 0, opacity: { delay: 0, duration: 0.25 } }, scale: { delay: 0.4, duration: 0.25 } }}
-                                    transition={{ duration: 0.25, delay: 0.2, opacity: { delay: 0.4, duration: 0.25 }, scale: { delay: 0.4, duration: 0.25 } }}
+                                    exit={{ opacity: 0, transition: { duration: 0.25, delay: 0, opacity: { delay: 0, duration: 0.25 } }, scale: { delay: 0, duration: 0.25 } }}
+                                    transition={{ duration: 0.25, delay: 0.35, opacity: { delay: 0.6, duration: 0.25 }, scale: { delay: 0.6, duration: 0.25 } }}
                                 >
                                     <Link to={path} className={styles.navButton} onClick={handleNavClick}></Link>
                                 </motion.div>
