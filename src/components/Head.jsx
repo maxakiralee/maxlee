@@ -5,15 +5,33 @@ import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ReactSVG } from 'react-svg';
 
-const getVerticalPosition = (direction) => {
-    if (direction > 0) return '20vh';
-    if (direction < 0) return '-20vh';
-    return '0vh';
+
+const titleOutlineVariant = {
+    enter: (direction) => ({
+        y: direction > 0 ? '20vh' : direction < 0 ? '-20vh' : '0vh',
+        opacity: 1,
+    }),
+    exit: (direction) => ({
+        y: direction < 0 ? '20vh' : direction > 0 ? '-20vh' : '0vh',
+        opacity: 0, 
+        transition: { opacity: { delay: 0, duration: 0.2 } },
+    })
+};
+const titleFillVariant = {
+    enter: (direction) => ({
+        y: direction > 0 ? '20vh' : direction < 0 ? '-20vh' : '0vh',
+        opacity: 0,
+    }),
+    exit: (direction) => ({
+        y: direction < 0 ? '20vh' : direction > 0 ? '-20vh' : '0vh',
+        opacity: 0, 
+        transition: { opacity: { delay: 0, duration: 0.25 } },
+    })
 };
 
 const drawVariant = {
     hidden: { pathLength: 0 },
-    visible: { pathLength: 0 }
+    visible: { pathLength: 1 }
 };
 
 export default function Head({ svgPath, svgFill, description, image, url, custom, showButton = true, resetDirection }) {
@@ -32,7 +50,7 @@ export default function Head({ svgPath, svgFill, description, image, url, custom
                 strokeDashoffset: [anime.setDashoffset, 0],
                 easing: 'easeInOutSine',
                 duration: 500,
-                delay: 0 /* (el, i) => i * 50 */,
+                delay: 0,
                 direction: 'forward',
                 loop: false
             });
@@ -54,13 +72,14 @@ export default function Head({ svgPath, svgFill, description, image, url, custom
                 <div className={styles.left}>
                     <div className={styles.leftSpacing}></div>
                     <div className={styles.leftContent}>
-                        <h1 className={styles.title}>
+                        <div className={styles.title}>
                             <div className={styles.titleGrid}>
                                 <motion.div className={styles.titleOutline}
                                     custom={custom}
-                                    initial={{ y: getVerticalPosition(custom), opacity: 1 }}
+                                    variants={titleOutlineVariant}
+                                    initial='enter'
                                     animate={{ y: 0, opacity: 1 }}
-                                    exit={{ y: getVerticalPosition(custom), opacity: 0, transition: { opacity: { delay: 0, duration: 0.2 } } }}
+                                    exit='exit'
                                     transition={{ type: 'tween', duration: 0.25}}
                                 >
                                     <div ref={svgRef}>
@@ -69,37 +88,42 @@ export default function Head({ svgPath, svgFill, description, image, url, custom
                                 </motion.div>
                                 <motion.div className={styles.titleFill}
                                     custom={custom}
-                                    initial={{ y: getVerticalPosition(custom), opacity: 0 }}
+                                    variants={titleFillVariant}
+                                    initial='enter'
                                     animate={{ y: 0, opacity: 1 }}
-                                    exit={{ y: getVerticalPosition(custom), opacity: 0, transition: { opacity: { delay: 0, duration: 0.25 } } }}
-                                    transition={{ type: 'tween', duration: 0.25, opacity: { delay: 0.4, duration: 0.25 } }}
+                                    exit='exit'
+                                    transition={{ type: 'tween', duration: 0.25, opacity: { delay: 0.4, duration: 0.4 } }}
                                 >
                                     <ReactSVG src={svgFill} />
                                 </motion.div>
                             </div>
                             <motion.div
                                 custom={custom}
+                                variants={titleFillVariant}
                                 initial={{ y: 0, opacity: 0 }}
                                 animate={{ y: 0, opacity: 1 }}
-                                exit={{ y: getVerticalPosition(custom), opacity: 0, transition: { opacity: { duration: 0.25, delay: 0 } } }}
+                                exit='exit'
                                 transition={{ type: 'tween', duration: 0.25, opacity: { delay: 0.6, duration: 0.25 } }}
                             >
                                 <p className={styles.period}>.</p>
                             </motion.div>
-                        </h1>
+                        </div>
 
                         <motion.div
                             custom={custom}
+                            variants={titleFillVariant}
                             initial={{ x: '-3vw', opacity: 0 }}
                             animate={{ x: 0, opacity: 1 }}
-                            exit={{ y: getVerticalPosition(custom), opacity: 0, transition: { duration: 0.25, delay: 0 } }}
+                            exit='exit'
                             transition={{ duration: 0.35, delay: 0.4 }}
                         >
                             <p className={styles.description}>{description}</p>
                             {showButton && (
-                                <button className={styles.button}>
-                                    <Link to={url}>Home</Link>
-                                </button>
+                                <div className={styles.button}>
+                                    <div className={styles.buttonLink}>
+                                        <Link to={url} style={{textDecoration: 'none', color: 'rgb(100, 100, 100)' }}>Learn More</Link>
+                                    </div>
+                                </div>
                             )}
                         </motion.div>
                     </div>

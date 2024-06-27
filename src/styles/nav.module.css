@@ -1,10 +1,42 @@
 .container {
     width: 80vw;
-    height: 50vh;
+    height: 70vh;
     display: flex;
     flex-direction: column;
     justify-content: space-evenly;
     align-content: space-evenly;
-    font-size: 1rem;
+    font-size: 1.5rem;
     font-weight: 900;
 }
+
+.button {
+    display: grid;
+    place-items: start;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+
+.buttonLink {
+    grid-area: 1 / 1;
+    z-index: 1;
+    position: relative;
+    display: inline-block;
+    padding: 0.7vh; /* Adjust padding as needed */
+  }
+ 
+  .buttonLink::before {
+    content: '';
+    position: absolute;
+    top: 2.5vh; /* Adjust offset for y-axis */
+    left: 0; /* Adjust offset for x-axis */
+    right: 0; /* Adjust offset for x-axis */
+    bottom: 2.5vh; /* Adjust offset for y-axis */
+    border: 0.4vh solid hsl(45, 100%, 50%); /* Border properties */
+    z-index: -1;
+    transition: top 0.3s ease, bottom 0.3s ease; /* Transition properties */
+  }
+
+  .buttonLink:hover::before {
+      top: 0;
+      bottom: 0;
+  }

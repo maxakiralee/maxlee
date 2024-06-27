@@ -1,17 +1,21 @@
 import React from 'react';
 import Head from '../components/Head';
+import svgPath from '../assets/About.svg';
+import svgFill from '../assets/AboutFill.svg';
 
 const About = ({ custom , resetDirection }) => {
     return (
         <div>
             <Head 
                 title="ABOUT" 
-                description="Learn a little more about me!" 
+                description="Hear more about my skills and hobbies!" 
                 image="/path/to/your/image.jpg" 
                 url="/About/" 
-                resetDirection={resetDirection}
                 custom={custom}
-
+                resetDirection={resetDirection}
+                showButton={true} 
+                svgPath={svgPath}
+                svgFill={svgFill}
             />
         </div>
     );

@@ -8,7 +8,7 @@ const Home = ({ custom, resetDirection }) => {
         <div>
             <Head 
                 title="HI! I'M MAX"
-                description="I love many things, but coding above all!" 
+                description="Coder, Learner, Worker, Brownie Lover..." 
                 image="/path/to/your/image.jpg" 
                 url="/" 
                 custom={custom}

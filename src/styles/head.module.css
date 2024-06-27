@@ -42,6 +42,7 @@
     font-family: "Garamound", Times, serif;
     font-size: 5.5vw; 
     font-weight: 900;
+    height: 12vh;
   }
 
   .titleGrid {
@@ -63,20 +64,50 @@
 
   .period {
     color: hsl(45, 100%, 50%);
-    transform: translateY(0.7vh);
+    transform: translateY(-8.3vh);
   }
   
   .description {
-    font-size: 1.5vw;
+    font-size: 2.7vh;
     color: rgb(100, 100, 100);
     font-weight: 600;
   }
-  
+
   .button {
-    font-size: 1.5vw;
-    transform: translateY(-2vh);
+    font-size: 2.2vh;
+    font-weight: 600;
+    margin-top: -2vh;
+    display: grid;
+    place-items: start;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
   }
   
+  .buttonLink {
+    grid-area: 1 / 1;
+    z-index: 1;
+    position: relative;
+    display: inline-block;
+    padding: 0.7vh; /* Adjust padding as needed */
+  }
+  
+  .buttonLink::before {
+    content: '';
+    position: absolute;
+    top: 1.3vh; /* Adjust offset for y-axis */
+    left: 0; /* Adjust offset for x-axis */
+    right: 0; /* Adjust offset for x-axis */
+    bottom: 1.2vh; /* Adjust offset for y-axis */
+    border: 0.4vh solid hsl(45, 100%, 50%); /* Border properties */
+    z-index: -1;
+    transition: top 0.3s ease, bottom 0.3s ease; /* Transition properties */
+  }
+
+  .buttonLink:hover::before {
+      top: 0;
+      bottom: 0;
+  }
+
   .right {
     width: 50vw;
     display: flex;

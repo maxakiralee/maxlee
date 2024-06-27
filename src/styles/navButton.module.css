@@ -1,6 +1,6 @@
 
 .container {
-    transform: translateX(-47vw);
+    transform: translateX(-47.5vw);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -8,8 +8,8 @@
   
 
   .container button {
-    width: 6vh; 
-    height: 6vh; 
+    width: 5vh; 
+    height: 5vh; 
     background-color: hsl(45, 100%, 50%);
     border: none; 
     padding: 0;

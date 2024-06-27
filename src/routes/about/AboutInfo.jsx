@@ -1,20 +1,18 @@
 import React from 'react';
-import Head from '../../components/Head';
+import AboutComp from '../../components/AboutComp';
 
-const AboutHead = ({custom, resetDirection }) => {
+const AboutInfo = ({ custom , resetDirection }) => {
     return (
         <div>
-            <Head 
-                title="Read Descr" 
-                description="Make a new component that has sliding color background and ya" 
+            <AboutComp 
+                title="About Me" 
+                description="Hear more about my skills and hobbies!" 
                 image="/path/to/your/image.jpg" 
-                url="/" 
                 custom={custom}
                 resetDirection={resetDirection}
-                showButton={false} 
             />
         </div>
     );
 };
 
-export default AboutHead;
+export default AboutInfo;

@@ -2,12 +2,11 @@ import React, { useEffect, Suspense, useState } from 'react';
 import { useNavigate, Routes, Route, useLocation } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 
-const AboutHead = React.lazy(() => import('./routes/about/AboutHead'));
 const AboutInfo = React.lazy(() => import('./routes/about/AboutInfo'));
 const AboutContact = React.lazy(() => import('./routes/about/AboutContact'));
 import Frame from './components/frame';
 import NavButton from './components/NavButton';
-import './styles/App.css'
+import './styles/App.css';
 
 const App2 = () => {
   const navigate = useNavigate();
@@ -16,11 +15,11 @@ const App2 = () => {
   const [isKeyPressAllowed, setIsKeyPressAllowed] = useState(true);
   const [direction, setDirection] = useState(0);
 
-  const pages = ['/About/', '/About/info', '/About/contact'];
+  const pages = ['/About/', '/About/contact'];
 
   useEffect(() => {
-    event.preventDefault(); // Prevent the default scrolling behavior
     const handleKeyDown = (event) => {
+      event.preventDefault();
       if (!isKeyPressAllowed) return;
 
       const currentIndex = pages.indexOf(location.pathname);
@@ -89,8 +88,7 @@ const App2 = () => {
         <Suspense fallback={<div>Loading...</div>}>
           <AnimatePresence mode='wait' custom={direction}>
             <Routes location={location} key={location.key}>
-              <Route path="/" element={<AboutHead custom={direction} />} />
-              <Route path="/info" element={<AboutInfo custom={direction} />} />
+              <Route path="/" element={<AboutInfo custom={direction} />} />
               <Route path="/contact" element={<AboutContact custom={direction} />} />
             </Routes>
           </AnimatePresence>

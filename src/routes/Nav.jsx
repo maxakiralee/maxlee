@@ -7,25 +7,40 @@ export default function Nav() {
     return (
 
         <motion.div className={styles.container}
-            initial={{opacity: 0, y: 0}}
-            animate={{opacity: 1, y: 0}}
-            transition={{ type: 'tween'}}
+            initial={{x: '-3vw', opacity: 0, y: 0}}
+            animate={{x: 0, opacity: 1, y: 0}}
+            transition={{ type: 'tween', duration: 0.3, delay: 0.2 }}
         >
-            <div>
-                <Link to='/'>HOME</Link>
+            <div className={styles.button}>
+                <div className={styles.buttonLink}>
+                    <Link to='/' style={{textDecoration: 'none', color: 'black' }}>HOME</Link>
+                </div>
             </div>
-            <div>
-                <Link to='/About/'>ABOUT</Link>
+
+            <div className={styles.button}>
+                <div className={styles.buttonLink}>
+                    <Link to='/about' style={{textDecoration: 'none', color: 'black' }}>ABOUT</Link>
+                </div>
             </div>
-            <div>
-                <Link to='/Projects'>PROJECTS</Link>
+
+            <div className={styles.button}>
+                <div className={styles.buttonLink}>
+                    <Link to='/projects' style={{textDecoration: 'none', color: 'black' }}>PROJECTS</Link>
+                </div>
             </div>
-            <div>
-                <Link to='/Experience'>EXPERIENCE</Link>
+
+            <div className={styles.button}>
+                <div className={styles.buttonLink}>
+                    <Link to='/experience' style={{textDecoration: 'none', color: 'black' }}>EXPERIENCE</Link>
+                </div>
             </div>
-            <div>
-                <Link to='/Resume'>RESUME</Link>
+
+            <div className={styles.button}>
+                <div className={styles.buttonLink}>
+                    <Link to='/resume' style={{textDecoration: 'none', color: 'black' }}>RESUME</Link>
+                </div>
             </div>
+
         </motion.div>
     );
 }
