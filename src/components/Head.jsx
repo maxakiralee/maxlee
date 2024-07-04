@@ -61,7 +61,7 @@ export default function Head({ svgPath, svgFill, description, url, custom, showB
         // Adding a slight delay to ensure the DOM elements are fully available
         const timer = setTimeout(() => {
             runAnimation();
-        }, 5);
+        }, 25);
 
         return () => clearTimeout(timer);
     }, [currentPath]);
