@@ -7,7 +7,7 @@
 :root {
   --primary-color: #000000;
   --secondary-color: hsl(45, 100%, 50%);
-  --background-color: #ffffff;
+  --background-color: #ededed;
   --font-family: 'Inter, system-ui, Avenir, Helvetica, Arial, sans-serif';
   --font-size: 2vw; /* Use vw for responsive font size */
   --line-height: 1;

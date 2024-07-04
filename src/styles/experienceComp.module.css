@@ -5,7 +5,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #ffffff;
+    background-color: var(--background-color);
 }
 
 .container {
@@ -109,57 +109,62 @@
 
 .right {
     width: 60vw;
-    height: 50vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /*flex-start*/
-    align-items: center; /* Center the content horizontally */
-    padding-left: 7vw; /* Adjust this value if needed */
-    color: rgb(100, 100, 100);
-    transform: translateX(-5vw);
-}
-
-.imagesContainer {
+    height: 20vh;
     display: flex;
     flex-direction: row;
-    justify-content: center; /* Center the images horizontally */
     align-items: center;
-    gap: 1vw;
+    padding-left: 7vw; /* Adjust this value if needed */
+    color: rgb(100, 100, 100);
 }
 
-.image {
-    max-width: 15vw;
-    max-height: 35vh;
-    border-radius: 5%;
+.rightSpacing {
+    width: 0vw;
 }
 
-.rightDescription {
-    font-size: 2.5vh;
-    font-weight: 550;
-    margin-top: 5vh;
-    text-align: center; /* Center the text */
-}
-
-.technologiesUsedTitle {
-    font-size: 2.5vh;
-    font-weight: 550;
-    margin-top: 3vh;
-    margin-bottom: 4vh;
-    text-align: left; /* Align to the left */
-    width: 80%; /* Ensure it takes the full width */
-}
-
-.technologiesUsed {
+.rightContent {
+    width: 40vw;
     display: flex;
-    flex-wrap: wrap;
-    gap: 2vw;
-    justify-content: flex-start; /* Align to the left */
-    width: 80%; /* Ensure it takes the full width */
+    flex-direction: column;
+    justify-content: left; /*flex-start*/
+    align-items: center; /* Center the content horizontally */
 }
 
-.technologyItem {
-    margin-top: -2vh;
-    font-size: 2.2vh;
+.longDescription {
+    font-size: 2.5vh;
     font-weight: 550;
-    text-align: left; /* Align to the left */
 }
+
+.button {
+    font-size: 2.5vh;
+    font-weight: 550;
+    margin-top: 2vh;
+    display: grid;
+    place-items: start;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+
+.buttonLink {
+    grid-area: 1 / 1;
+    z-index: 1;
+    position: relative;
+    display: inline-block;
+    padding: 0.7vh; /* Adjust padding as needed */
+  }
+  
+  .buttonLink::before {
+    content: '';
+    position: absolute;
+    top: 1.4vh; /* Adjust offset for y-axis */
+    left: 0; /* Adjust offset for x-axis */
+    right: 0; /* Adjust offset for x-axis */
+    bottom: 1.3vh; /* Adjust offset for y-axis */
+    border: 0.4vh solid hsl(45, 100%, 50%); /* Border properties */
+    z-index: -1;
+    transition: top 0.3s ease, bottom 0.3s ease; /* Transition properties */
+  }
+
+  .buttonLink:hover::before {
+      top: 0;
+      bottom: 0;
+  }

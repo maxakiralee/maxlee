@@ -34,12 +34,14 @@ export default function Nav() {
                     <Link to='/experience' style={{textDecoration: 'none', color: 'black' }}>EXPERIENCE</Link>
                 </div>
             </div>
-
+            
+            {/*
             <div className={styles.button}>
                 <div className={styles.buttonLink}>
                     <Link to='/resume' style={{textDecoration: 'none', color: 'black' }}>RESUME</Link>
                 </div>
             </div>
+            */}
 
         </motion.div>
     );

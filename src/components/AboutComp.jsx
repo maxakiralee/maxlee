@@ -10,7 +10,13 @@ const leftContentVariant = {
     exit: { opacity: 0, transition: { duration: 0.1, delay: 0 } },
 };
 
-export default function AboutComp({ title, description, image, custom, resetDirection }) {
+const rightContentVariant = {
+    enter: { y: '3vh', opacity: 0 },
+    center: { y: 0, opacity: 1 },
+    exit: { opacity: 0, transition: { duration: 0.1, delay: 0, opacity: { delay: 0, duration: 0.1 } } },
+}
+
+export default function AboutComp({ title, description, description2, programming, technologies, image, longDescription, custom, resetDirection }) {
     const location = useLocation();
     const currentPath = location.pathname;
 
@@ -29,9 +35,9 @@ export default function AboutComp({ title, description, image, custom, resetDire
     const getBackgroundColor = (path) => {
         switch (path) {
             case '/About/':
-                return 'aqua';
+                return '#C9DC8A';
             case '/About/contact':
-                return 'lightgreen';
+                return '#C9DC8A';
             default:
                 return 'white';
         }
@@ -62,11 +68,70 @@ export default function AboutComp({ title, description, image, custom, resetDire
                             <div className={styles.period}>.</div>
                         </div>
                         <p className={styles.description}>{description}</p>
+                        <p className={styles.description2}>{description2}</p>
                      </motion.div>
                 </motion.div>
 
                 <motion.div className={styles.right}>
-                    <p> COOL STUFF HERE </p>
+                    <div className={styles.rightSpacing}></div>
+                        <div className={styles.rightContent}>
+                            
+                            <motion.div className={styles.imagesContainer}
+                                variants={rightContentVariant}
+                                initial='enter'
+                                animate='center'
+                                exit='exit'
+                                transition={{ duration: 0.2, delay: 0.4 }}
+                            >
+                                <img src={image} alt='max image'className={styles.image} />
+                            </motion.div>
+
+                            <motion.p className={styles.longDescription}
+                                variants={rightContentVariant}
+                                initial='enter'
+                                animate='center'
+                                exit='exit'
+                                transition={{ duration: 0.2, delay: 0.45 }}
+                            >{longDescription}</motion.p>
+                            
+                            <motion.p className={styles.technologiesUsedTitle}
+                                variants={rightContentVariant}
+                                initial='enter'
+                                animate='center'
+                                exit='exit'
+                                transition={{ duration: 0.2, delay: 0.5 }}
+                            >Programming:</motion.p>
+                            <motion.div className={styles.technologiesUsed}
+                                variants={rightContentVariant}
+                                initial='enter'
+                                animate='center'
+                                exit='exit'
+                                transition={{ duration: 0.2, delay: 0.5 }}
+                            >
+                            {programming.map((prog, index) => (
+                                <span key={index} className={styles.technologyItem}>{prog}</span>
+                            ))}
+                            </motion.div>
+                            
+                            <motion.p className={styles.technologiesUsedTitle}
+                                variants={rightContentVariant}
+                                initial='enter'
+                                animate='center'
+                                exit='exit'
+                                transition={{ duration: 0.2, delay: 0.55 }}
+                            >Technologies:</motion.p>
+                            <motion.div className={styles.technologiesUsed}
+                                variants={rightContentVariant}
+                                initial='enter'
+                                animate='center'
+                                exit='exit'
+                                transition={{ duration: 0.2, delay: 0.55 }}
+                            >
+                            {technologies.map((tech, index) => (
+                                <span key={index} className={styles.technologyItem}>{tech}</span>
+                            ))}
+                            </motion.div>
+                        </div>
                 </motion.div>
             </div>
 

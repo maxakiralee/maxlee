@@ -9,7 +9,13 @@ const leftContentVariant = {
     exit: { opacity: 0, transition: { duration: 0.1, delay: 0 } },
 };
 
-export default function ExperienceComp({ title, description, longDescription, images, technologies, custom, resetDirection }) {
+const rightContentVariant = {
+    enter: { y: '3vh', opacity: 0 },
+    center: { y: 0, opacity: 1 },
+    exit: { opacity: 0, transition: { duration: 0.1, delay: 0, opacity: { delay: 0, duration: 0.1 } } },
+}
+
+export default function ExperienceComp({ title, description, longDescription, url, custom, resetDirection }) {
     const location = useLocation();
     const currentPath = location.pathname;
 
@@ -29,9 +35,9 @@ export default function ExperienceComp({ title, description, longDescription, im
     const getBackgroundColor = (path) => {
         switch (path) {
             case '/Experience/1':
-                return 'rgb(245,200,255)';
+                return '#FFCCFF';
             case '/Experience/2':
-                return 'rgb(205,205,205)';
+                return '#FFE5CC';
             default:
                 return 'white';
         }
@@ -65,20 +71,29 @@ export default function ExperienceComp({ title, description, longDescription, im
                     </motion.div>
                 </motion.div>
 
-                <motion.div className={styles.right}>
-                    <div className={styles.imagesContainer}>
-                        {images.map((img, index) => (
-                            <img key={index} src={img} alt={`Project image ${index + 1}`} className={styles.image} />
-                        ))}
+                <div className={styles.right}>
+                    <div className={styles.rightSpacing}></div>
+                    <div className={styles.rightContent}>
+                        <motion.p className={styles.longDescription}
+                            variants={rightContentVariant}
+                            initial='enter'
+                            animate='center'
+                            exit='exit'
+                            transition={{ duration: 0.2, delay: 0.4 }}
+                        >{longDescription}</motion.p>
+                        <motion.div className={styles.button}
+                            variants={rightContentVariant}
+                            initial='enter'
+                            animate='center'
+                            exit='exit'
+                            transition={{ duration: 0.2, delay: 0.45 }}
+                        >
+                            <div className={styles.buttonLink}>
+                                <Link to={url} style={{textDecoration: 'none', color: 'rgb(100, 100, 100)' }}>Learn More</Link>
+                            </div>
+                        </motion.div>
                     </div>
-                    <p className={styles.rightDescription}>{longDescription}</p>
-                    <p className={styles.technologiesUsedTitle}>Technologies/Skills:</p>
-                    <div className={styles.technologiesUsed}>
-                        {technologies.map((tech, index) => (
-                            <span key={index} className={styles.technologyItem}>{tech}</span>
-                        ))}
-                    </div>
-                </motion.div>
+                </div>
             </div>
 
             <motion.div className={styles.navChannel}

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import styles from '../styles/projectsComp.module.css';
+import styles from '../styles/about2Comp.module.css';
 import { Link, useLocation } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
@@ -15,7 +15,7 @@ const rightContentVariant = {
     exit: { opacity: 0, transition: { duration: 0.1, delay: 0, opacity: { delay: 0, duration: 0.1 } } },
 }
 
-export default function ProjectsComp({ title, description, longDescription, images, technologies, custom, resetDirection }) {
+export default function About2Comp({ title, description, description2, programming, technologies, image, longDescription, custom, resetDirection }) {
     const location = useLocation();
     const currentPath = location.pathname;
 
@@ -25,7 +25,6 @@ export default function ProjectsComp({ title, description, longDescription, imag
 
     useEffect(() => {
         const timer = setTimeout(() => {
-            // Assuming runAnimation is defined elsewhere
             runAnimation();
         }, 5);
 
@@ -34,12 +33,10 @@ export default function ProjectsComp({ title, description, longDescription, imag
 
     const getBackgroundColor = (path) => {
         switch (path) {
-            case '/Projects/1':
-                return '#CDF9FF';
-            case '/Projects/2':
-                return '#CCE5FF';
-            case '/Projects/3':
-                return 'rgb(255,156,156)';
+            case '/About/':
+                return '#C9DC8A';
+            case '/About/contact':
+                return '#C9DC8A';
             default:
                 return 'white';
         }
@@ -70,47 +67,57 @@ export default function ProjectsComp({ title, description, longDescription, imag
                             <div className={styles.period}>.</div>
                         </div>
                         <p className={styles.description}>{description}</p>
-                    </motion.div>
+                     </motion.div>
                 </motion.div>
 
-                <div className={styles.right}>
-                    <motion.div className={styles.imagesContainer}
-                        variants={rightContentVariant}
-                        initial='enter'
-                        animate='center'
-                        exit='exit'
-                        transition={{ duration: 0.2, delay: 0.4 }}
-                    >
-                        {images.map((img, index) => (
-                            <img key={index} src={img} alt={`Project image ${index + 1}`} className={styles.image} />
-                        ))}
-                    </motion.div>
-                    <motion.p className={styles.rightDescription}
-                        variants={rightContentVariant}
-                        initial='enter'
-                        animate='center'
-                        exit='exit'
-                        transition={{ duration: 0.2, delay: 0.45 }}
-                    >{longDescription}</motion.p>
-                    <motion.p className={styles.technologiesUsedTitle}
-                        variants={rightContentVariant}
-                        initial='enter'
-                        animate='center'
-                        exit='exit'
-                        transition={{ duration: 0.2, delay: 0.5 }}
-                    >Technologies:</motion.p>
-                    <motion.div className={styles.technologiesUsed}
-                        variants={rightContentVariant}
-                        initial='enter'
-                        animate='center'
-                        exit='exit'
-                        transition={{ duration: 0.2, delay: 0.5 }}
-                    >
-                        {technologies.map((tech, index) => (
-                            <i className={`ci ci-${tech} ci-xl`} key={index}></i>
-                        ))}
-                    </motion.div>
-                </div>
+                <motion.div className={styles.right}>
+                    <div className={styles.rightSpacing}></div>
+                        <div className={styles.rightContent}>
+                            
+                            <motion.div className={styles.imagesContainer}
+                                variants={rightContentVariant}
+                                initial='enter'
+                                animate='center'
+                                exit='exit'
+                                transition={{ duration: 0.2, delay: 0.4 }}
+                            >
+                                <img src={image} alt='max image'className={styles.image} />
+                            </motion.div>
+
+                            <motion.p className={styles.longDescription}
+                                variants={rightContentVariant}
+                                initial='enter'
+                                animate='center'
+                                exit='exit'
+                                transition={{ duration: 0.2, delay: 0.45 }}
+                            >{longDescription}</motion.p>
+                            
+                            <motion.p className={styles.contacts}
+                                variants={rightContentVariant}
+                                initial='enter'
+                                animate='center'
+                                exit='exit'
+                                transition={{ duration: 0.2, delay: 0.5 }}
+                            >
+                                <div>
+                                    <a href="https://github.com/maxakiralee" target="_blank" rel="noopener noreferrer">
+                                        <i class="ci ci-github ci-md"></i>
+                                    </a>
+                                </div>
+                                <div>
+                                    <a href="https://www.linkedin.com/in/max-lee" target="_blank" rel="noopener noreferrer">
+                                        <i class="ci ci-linkedin ci-md"></i>
+                                    </a>
+                                </div>
+                                <div>
+                                    <a href="mailto:maxlee10@g.ucla.edu" target="_blank" rel="noopener noreferrer">
+                                        <i class="ci ci-gmail ci-md"></i>
+                                    </a>
+                                </div>
+                            </motion.p>
+                            
+                        </div>
+                </motion.div>
             </div>
 
             <motion.div className={styles.navChannel}
@@ -120,7 +127,7 @@ export default function ProjectsComp({ title, description, longDescription, imag
                 exit='exit'
                 transition={{ duration: 0.35, delay: 0.3 }}
             >
-                {['/Projects/1', '/Projects/2', '/Projects/3'].map((path, index) => (
+                {['/About/', '/About/contact'].map((path, index) => (
                     <React.Fragment key={index}>
                         {currentPath === path ? (
                             <div className={styles.currentButton}>
@@ -148,7 +155,7 @@ export default function ProjectsComp({ title, description, longDescription, imag
                                 </div>
                             </div>
                         )}
-                        {index < 2 && <span className={styles.navLine}></span>}
+                        {index < 1 && <span className={styles.navLine}></span>}
                     </React.Fragment>
                 ))}
             </motion.div>

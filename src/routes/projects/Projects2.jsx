@@ -10,14 +10,14 @@ import image5 from '../../assets/Stride5.png';
 
 const Projects3 = ({ custom, resetDirection }) => {
     const images = [ image1, image2, image3, image4, image5 ];
-    const technologies = ["React Native", "Expo", "Firebase", "Apple Maps"];
+    const technologies = ["react-native", "firebase", "apple"];
 
     return (
         <div>
             <ProjectsComp 
                 title="Stride" 
                 description="Fitness and Friendly Competition Wrapped into One" 
-                longDescription="Solving fitness and providng a freidnly competitivee social atmosphere" 
+                longDescription="Stride is a mobile app compatible with both Android and IOS, that offers a social way to stay fit. It allows users track their athletic endeavors and connect with friends, putting users in friendly communities that encourage fitness." 
                 images={images} 
                 technologies={technologies} 
                 custom={custom}
