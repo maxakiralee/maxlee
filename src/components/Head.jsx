@@ -34,7 +34,7 @@ const drawVariant = {
     visible: { pathLength: 1 }
 };
 
-export default function Head({ svgPath, svgFill, description, image, url, custom, showButton = true, resetDirection }) {
+export default function Head({ svgPath, svgFill, description, url, custom, showButton = true, resetDirection }) {
     const location = useLocation();
     const currentPath = location.pathname;
     const svgRef = useRef(null);
