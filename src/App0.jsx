@@ -1,6 +1,5 @@
 import React, { useEffect, Suspense, useState } from 'react';
 import { useNavigate, Routes, Route, useLocation } from 'react-router-dom';
-import { AnimatePresence } from 'framer-motion';
 
 const Nav = React.lazy(() => import('./routes/Nav'));
 import Frame from './components/frame';
