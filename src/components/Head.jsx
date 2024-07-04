@@ -57,14 +57,6 @@ export default function Head({ svgPath, svgFill, description, url, custom, showB
         }
     };
 
-    useEffect(() => {
-        // Adding a slight delay to ensure the DOM elements are fully available
-        const timer = setTimeout(() => {
-            runAnimation();
-        }, 25);
-
-        return () => clearTimeout(timer);
-    }, [currentPath]);
 
     return (
         <div className={styles.overall}>
