@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from '../components/Head';
-import svgPath from '../assets/Experience.svg';
+import SvgPath from '../components/svgComps/ExperienceSvgComp';
 import svgFill from '../assets/ExperienceFill.svg';
 
 const Experience = ({ custom , resetDirection }) => {
@@ -14,7 +14,7 @@ const Experience = ({ custom , resetDirection }) => {
                 resetDirection={resetDirection}
                 custom={custom}
                 showButton={true} 
-                svgPath={svgPath}
+                svgPath={SvgPath}
                 svgFill={svgFill}
             />
         </div>

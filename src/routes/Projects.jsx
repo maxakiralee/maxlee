@@ -1,6 +1,6 @@
 import React from 'react';
 import Head from '../components/Head';
-import svgPath from '../assets/Projects.svg';
+import SvgPath from '../components/svgComps/ProjectsSvgComp';
 import svgFill from '../assets/ProjectsFill.svg';
 
 const Projects = ({ custom , resetDirection }) => {
@@ -14,7 +14,7 @@ const Projects = ({ custom , resetDirection }) => {
                 resetDirection={resetDirection}
                 custom={custom}
                 showButton={true} 
-                svgPath={svgPath}
+                svgPath={SvgPath}
                 svgFill={svgFill}
             />
         </div>

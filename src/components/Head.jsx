@@ -34,7 +34,7 @@ const drawVariant = {
     visible: { pathLength: 1 }
 };
 
-export default function Head({ svgPath, svgFill, description, url, custom, showButton = true, resetDirection }) {
+export default function Head({ svgPath: SvgPath, svgFill, description, url, custom, showButton = true, resetDirection }) {
     const location = useLocation();
     const currentPath = location.pathname;
     const svgRef = useRef(null);
@@ -42,29 +42,6 @@ export default function Head({ svgPath, svgFill, description, url, custom, showB
     const handleNavClick = () => {
         resetDirection();
     };
-
-    const runAnimation = () => {
-        if (svgRef.current) {
-            anime({
-                targets: svgRef.current.querySelectorAll('path'),
-                strokeDashoffset: [anime.setDashoffset, 0],
-                easing: 'easeInOutSine',
-                duration: 500,
-                delay: 0,
-                direction: 'forward',
-                loop: false
-            });
-        }
-    };
-
-    useEffect(() => {
-        // Adding a slight delay to ensure the DOM elements are fully available
-        const timer = setTimeout(() => {
-            runAnimation();
-        }, 5);
-
-        return () => clearTimeout(timer);
-    }, [currentPath]);
 
     return (
         <div className={styles.overall}>
@@ -82,8 +59,8 @@ export default function Head({ svgPath, svgFill, description, url, custom, showB
                                     exit='exit'
                                     transition={{ type: 'tween', duration: 0.25}}
                                 >
-                                    <div ref={svgRef}>
-                                        <ReactSVG src={svgPath} />
+                                    <div>
+                                        <SvgPath/>
                                     </div>
                                 </motion.div>
                                 <motion.div className={styles.titleFill}

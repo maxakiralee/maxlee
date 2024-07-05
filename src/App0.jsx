@@ -2,7 +2,7 @@ import React, { useEffect, Suspense, useState } from 'react';
 import { useNavigate, Routes, Route, useLocation } from 'react-router-dom';
 
 const Nav = React.lazy(() => import('./routes/Nav'));
-import Frame from './components/frame';
+import NavFrame from './components/NavFrame';
 import NavButton from './components/NavButton';
 import './styles/App.css';
 
@@ -31,7 +31,7 @@ const App = () => {
   return (
     <div className="grid"> 
       <div className="gridBackground"> 
-        <Frame/>
+        <NavFrame/>
       </div>
       <div className='gridFront'>
         <Suspense fallback={<div>Loading...</div>}>

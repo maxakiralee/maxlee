@@ -1,11 +1,9 @@
 .overall {
     width: 95vw;
     height: 90vh;
-    border: 0.3vh solid black; /* combined border width, style, and color */
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: var(--background-color);
 }
 
 .container {
