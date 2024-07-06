@@ -2,6 +2,7 @@ import React from 'react';
 import Head from '../components/Head';
 import SvgPath from '../components/svgComps/ProjectsSvgComp';
 import svgFill from '../assets/ProjectsFill.svg';
+import ImagePath from '../components/svgComps/FlowerSvgComp'
 
 const Projects = ({ custom , resetDirection }) => {
     return (
@@ -16,6 +17,7 @@ const Projects = ({ custom , resetDirection }) => {
                 showButton={true} 
                 svgPath={SvgPath}
                 svgFill={svgFill}
+                imagePath= {ImagePath}
             />
         </div>
     );

@@ -34,7 +34,7 @@ const drawVariant = {
     visible: { pathLength: 1 }
 };
 
-export default function Head({ svgPath: SvgPath, svgFill, description, url, custom, showButton = true, resetDirection }) {
+export default function Head({ svgPath: SvgPath, svgFill, description, url, custom, showButton = true, resetDirection, imagePath: ImagePath }) {
     const location = useLocation();
     const currentPath = location.pathname;
     const svgRef = useRef(null);
@@ -106,8 +106,18 @@ export default function Head({ svgPath: SvgPath, svgFill, description, url, cust
                     </div>
                 </div>
 
-                <motion.div className={styles.right}>
-                    <p> COOL STUFF HERE </p>
+                <motion.div className={styles.right}
+                    custom={custom}
+                    variants={titleOutlineVariant}
+                    initial='enter'
+                    animate={{ y: 0, opacity: 1 }}
+                    exit='exit'
+                    transition={{ type: 'tween', duration: 0.25}}
+                >
+                    <div className={styles.rightSpacing}></div>
+                    <div className={styles.rightContent}>
+                        <ImagePath/>
+                    </div>
                 </motion.div>
             </div>
 

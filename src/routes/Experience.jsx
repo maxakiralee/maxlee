@@ -2,6 +2,7 @@ import React from 'react';
 import Head from '../components/Head';
 import SvgPath from '../components/svgComps/ExperienceSvgComp';
 import svgFill from '../assets/ExperienceFill.svg';
+import ImagePath from '../components/svgComps/LightbulbSvgComp'
 
 const Experience = ({ custom , resetDirection }) => {
     return (
@@ -16,6 +17,7 @@ const Experience = ({ custom , resetDirection }) => {
                 showButton={true} 
                 svgPath={SvgPath}
                 svgFill={svgFill}
+                imagePath= {ImagePath}
             />
         </div>
     );

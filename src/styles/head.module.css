@@ -107,12 +107,21 @@
   }
 
   .right {
-    width: 50vw;
+    width: 45vw;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    transform: translateX(-5vw);
+    flex-direction: row;
+    align-items: left;
   }
+
+  .rightSpacing{
+    width: 0vw;
+  }
+  
+.rightContent{
+    width: 35vw;
+    align-items: left;
+    justify-content: right;
+}
   
   .navChannel {
     position: absolute;

@@ -2,6 +2,7 @@ import React from 'react';
 import Head from '../components/Head';
 import SvgPath from '../components/svgComps/HiImMaxComp';
 import svgFill from '../assets/HiImMaxFill.svg';
+import ImagePath from '../components/svgComps/FaceSvgComp'
 
 const Home = ({ custom, resetDirection }) => {
     return (
@@ -16,6 +17,7 @@ const Home = ({ custom, resetDirection }) => {
                 showButton={false} 
                 svgPath={SvgPath}
                 svgFill={svgFill}
+                imagePath= {ImagePath}
             />
         </div>
     );
