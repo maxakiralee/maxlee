@@ -9,7 +9,7 @@ const Projects = ({ custom , resetDirection }) => {
         <div>
             <Head
                 title="PROJECTS" 
-                description="I love making cool things with code." 
+                description="Check out some of my favorite projects!" 
                 image="/path/to/your/image.jpg" 
                 url="/Projects/1" 
                 resetDirection={resetDirection}

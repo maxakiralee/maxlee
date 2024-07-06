@@ -14,7 +14,7 @@ const Projects3 = ({ custom, resetDirection }) => {
             <ProjectsComp 
                 title="Maui Strong" 
                 description="The Heal One World Mission" 
-                longDescription="In light of the wildfire tragedies in Maui, I worked with the nonprofit Heal One World to create s digital platform called Maui Strong. Through this platform, Mauians can stay connected to a network of support classes, community events, and a space for interaction to aid and facilitate their recovery." 
+                longDescription="In light of the wildfire tragedies in Maui, I worked with the nonprofit Heal One World to create a digital platform called Maui Strong. Through this platform, Mauians can stay connected to a network of support classes, community events, and a space for interaction to aid and facilitate their recovery." 
                 images={images} 
                 technologies={technologies} 
                 custom={custom}

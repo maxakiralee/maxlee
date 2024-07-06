@@ -9,7 +9,7 @@ const About = ({ custom , resetDirection }) => {
         <div>
             <Head 
                 title="ABOUT" 
-                description="Hear more about my skills and hobbies!" 
+                description="See my technical skills and personal interests!" 
                 image="/path/to/your/image.jpg" 
                 url="/About/" 
                 custom={custom}
