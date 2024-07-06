@@ -19,19 +19,19 @@ export default function Nav() {
 
             <div className={styles.button}>
                 <div className={styles.buttonLink}>
-                    <Link to='/about' style={{textDecoration: 'none', color: 'black' }}>ABOUT</Link>
+                    <Link to='/About/' style={{textDecoration: 'none', color: 'black' }}>ABOUT</Link>
                 </div>
             </div>
 
             <div className={styles.button}>
                 <div className={styles.buttonLink}>
-                    <Link to='/projects' style={{textDecoration: 'none', color: 'black' }}>PROJECTS</Link>
+                    <Link to='/Projects/1' style={{textDecoration: 'none', color: 'black' }}>PROJECTS</Link>
                 </div>
             </div>
 
             <div className={styles.button}>
                 <div className={styles.buttonLink}>
-                    <Link to='/experience' style={{textDecoration: 'none', color: 'black' }}>EXPERIENCE</Link>
+                    <Link to='/Experience/1' style={{textDecoration: 'none', color: 'black' }}>EXPERIENCE</Link>
                 </div>
             </div>
             
