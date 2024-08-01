@@ -4,8 +4,8 @@ import AboutComp from '../../components/AboutComp';
 import image from '../../assets/max.jpg';
 
 const AboutInfo = ({ custom , resetDirection }) => {
-    const programming = [ "C++", "HTML/CSS", " Tailwind CSS", "JavaScript", "Java", "Python", "Kotlin" ];
-    const technologies = ["React.js", "React Native", "MongoDB", "Firebase", "PostgreSQL", "Express.js", "Node.js", "Next.js", "Git/Github"];
+    const programming = [ "Python", "C", "C++", "Java", "Javascript", "Typescript", "HTML", "CSS", "Tailwind CSS", "SQL", "Kotlin", "Bash"];
+    const technologies = ["React.js", "React Native", "Next.js", "Gatsby", "Node.js", "Express.js", "MongoDB", "Firebase", "MySQL", "PostgreSQL", "GraphQL", "Git", "GitHub", "OpenCV", "TensorFlow", "NumPy", "Pandas", "Matplotlib", "scikit-learn", "spaCy", "NLTK", "Docker", "Postman", "Amazon Web Services"];
 
     return (
         <div>
