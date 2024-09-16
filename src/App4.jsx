@@ -4,6 +4,7 @@ import { AnimatePresence } from 'framer-motion';
 
 const Experience1 = React.lazy(() => import('./routes/experience/Experience1'));
 const Experience2 = React.lazy(() => import('./routes/experience/Experience2'));
+const Experience3 = React.lazy(() => import('./routes/experience/Experience3'));
 
 import Frame from './components/frame';
 import NavButton from './components/NavButton';
@@ -16,7 +17,7 @@ const App2 = () => {
   const [isKeyPressAllowed, setIsKeyPressAllowed] = useState(true);
   const [direction, setDirection] = useState(0);
 
-  const pages = ['/Experience/1', '/Experience/2' ];
+  const pages = ['/Experience/3', '/Experience/1', '/Experience/2' ];
 
   useEffect(() => {
     const handleKeyDown = (event) => {
@@ -91,6 +92,7 @@ const App2 = () => {
             <Routes location={location} key={location.key}>
               <Route path="/1" element={<Experience1 custom={direction} />} />
               <Route path="/2" element={<Experience2 custom={direction} />} />
+              <Route path="/3" element={<Experience3 custom={direction} />} />
             </Routes>
           </AnimatePresence>
         </Suspense>

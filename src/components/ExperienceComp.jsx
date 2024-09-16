@@ -38,6 +38,8 @@ export default function ExperienceComp({ title, description, longDescription, ur
                 return '#FFCCFF';
             case '/Experience/2':
                 return '#FFE5CC';
+            case '/Experience/3':
+                return '#85b4ff';
             default:
                 return 'white';
         }
@@ -103,7 +105,7 @@ export default function ExperienceComp({ title, description, longDescription, ur
                 exit='exit'
                 transition={{ duration: 0.35, delay: 0.3 }}
             >
-                {['/Experience/1', '/Experience/2'].map((path, index) => (
+                {['/Experience/3', '/Experience/1', '/Experience/2'].map((path, index) => (
                     <React.Fragment key={index}>
                         {currentPath === path ? (
                             <div className={styles.currentButton}>
@@ -131,7 +133,7 @@ export default function ExperienceComp({ title, description, longDescription, ur
                                 </div>
                             </div>
                         )}
-                        {index < 1 && <span className={styles.navLine}></span>}
+                        {index < 2 && <span className={styles.navLine}></span>}
                     </React.Fragment>
                 ))}
             </motion.div>

@@ -12,9 +12,9 @@ const AboutInfo = ({ custom , resetDirection }) => {
             <AboutComp 
                 title="About Me" 
                 description="Software Developer and" 
-                description2="2nd year Computer Science Student at UCLA."
+                description2="Computer Science Student at UCLA."
                 image={image}
-                longDescription="Hello! I am currently a sophomore studying Computer Science at UCLA. I love all sorts of things, from baking sweets to playing soccer. But above all, I love to code! Below are some of the things I know. Welcome to my website and enjoy your stay. 😃"
+                longDescription="Hello! I am currently studying Computer Science at UCLA. I love all sorts of things, from baking sweets to playing soccer. But above all, I love to code! Below are some of the things I know. Welcome to my website and enjoy your stay. 😃"
                 programming={programming}
                 technologies={technologies} 
                 custom={custom}
